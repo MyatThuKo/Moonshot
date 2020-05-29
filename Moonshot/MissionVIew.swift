@@ -8,6 +8,20 @@
 
 import SwiftUI
 
+struct SpecialText: View {
+    var text: String
+    
+    var body: some View {
+        if text == "Commander" {
+            return Text("🚀")
+        } else if text == "Command Module Pilot" {
+            return Text("👨‍🚀")
+        } else {
+            return Text("🌕")
+        }
+    }
+}
+
 struct MissionVIew: View {
     struct CrewMember {
         let role: String
@@ -50,13 +64,17 @@ struct MissionVIew: View {
                                 }
                                 
                                 Spacer()
-                                if crewMember.role == "Commander" {
-                                    Text("🚀👨‍🚀")
-                                }
+                                SpecialText(text: crewMember.role)
                             }
-                            .padding(.horizontal)
+                            .padding()
+                            .background(
+                                LinearGradient(
+                                    gradient: Gradient(colors: [.white, .red,  .red, .white, .blue, .blue]),
+                                    startPoint: .leading,
+                                    endPoint: .trailing))
+                            .border(Color.black, width: 2)
                         }
-                    .buttonStyle(PlainButtonStyle())
+                        .buttonStyle(PlainButtonStyle())
                     }
                     Spacer(minLength: 25)
                 }
