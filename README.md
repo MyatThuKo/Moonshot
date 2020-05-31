@@ -22,3 +22,5 @@ Day 42 is the challenge day. The challenges are
 <li> Modify AstronautView to show all the missions this astronaut flew on </li>
 <li> Make a bar button in ContentView that toggles between showing launch dates and showing crew names </li>
 </ol>
+</p>
+<img src="Screen-Recording.gif" width="250">
