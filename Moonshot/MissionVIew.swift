@@ -22,6 +22,20 @@ struct SpecialText: View {
     }
 }
 
+struct LaunchDateText: View {
+    var text: String
+    
+    var body: some View {
+        Text(text)
+            .foregroundColor(.white)
+            .padding()
+            .background(LinearGradient(gradient: Gradient(colors: [.red, .blue]), startPoint: .topLeading, endPoint: .bottomTrailing))
+            .clipShape(Capsule())
+            .overlay(Capsule()
+            .stroke(Color.black, lineWidth: 3))
+    }
+}
+
 struct MissionVIew: View {
     struct CrewMember {
         let role: String
@@ -40,6 +54,8 @@ struct MissionVIew: View {
                         .scaledToFit()
                         .frame(maxWidth: geometry.size.width * 0.7)
                         .padding(.top)
+                    
+                    LaunchDateText(text: "Launch Date: \(self.mission.formattedLaunchDate)")
                     
                     Text(self.mission.description)
                         .padding()
